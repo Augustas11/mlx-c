@@ -2961,6 +2961,31 @@ extern "C" int mlx_quantized_matmul(
     mlx_optional_int bits,
     const char* mode,
     const mlx_stream s) {
+  return mlx_quantized_matmul_reference_prefill(
+      res,
+      x,
+      w,
+      scales,
+      biases,
+      transpose,
+      group_size,
+      bits,
+      mode,
+      false,
+      s);
+}
+extern "C" int mlx_quantized_matmul_reference_prefill(
+    mlx_array* res,
+    const mlx_array x,
+    const mlx_array w,
+    const mlx_array scales,
+    const mlx_array biases /* may be null */,
+    bool transpose,
+    mlx_optional_int group_size,
+    mlx_optional_int bits,
+    const char* mode,
+    bool reference_prefill,
+    const mlx_stream s) {
   try {
     mlx_array_set_(
         *res,
@@ -2976,7 +3001,8 @@ extern "C" int mlx_quantized_matmul(
             (bits.has_value ? std::make_optional<int>(bits.value)
                             : std::nullopt),
             std::string(mode),
-            mlx_stream_get_(s)));
+            mlx_stream_get_(s),
+            reference_prefill));
   } catch (std::exception& e) {
     mlx_error(e.what());
     return 1;
