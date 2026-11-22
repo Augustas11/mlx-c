@@ -35,7 +35,7 @@ else()
   FetchContent_Declare(
     mlx
     GIT_REPOSITORY "https://github.com/Augustas11/mlx.git"
-    GIT_TAG 59c5421b1e4ec66804d73dc89131654935036229)
+    GIT_TAG cde15ff75e719a47677d7953657ee319ba50deee)
   FetchContent_MakeAvailable(mlx)
 endif()
 
@@ -63,6 +63,7 @@ set(mlxc-src
     # ${CMAKE_CURRENT_LIST_DIR}/mlx/c/object.cpp
     ${CMAKE_CURRENT_LIST_DIR}/mlx/c/ops.cpp
     ${CMAKE_CURRENT_LIST_DIR}/mlx/c/random.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/mlx/c/small_m_route.cpp
     ${CMAKE_CURRENT_LIST_DIR}/mlx/c/stream.cpp
     ${CMAKE_CURRENT_LIST_DIR}/mlx/c/string.cpp
     ${CMAKE_CURRENT_LIST_DIR}/mlx/c/transforms.cpp
