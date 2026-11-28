@@ -35,7 +35,7 @@ else()
   FetchContent_Declare(
     mlx
     GIT_REPOSITORY "https://github.com/Augustas11/mlx.git"
-    GIT_TAG cde15ff75e719a47677d7953657ee319ba50deee)
+    GIT_TAG 4ff2db41971adef65d6e817637f4b6dbdf719ef9)
   FetchContent_MakeAvailable(mlx)
 endif()
 
